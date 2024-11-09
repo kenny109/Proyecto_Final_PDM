@@ -21,6 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MemoryPairsActivity" />
+        <activity android:name=".ConnectColorsActivity" />
+        <activity android:name=".SoundMemoryActivity" />
+        <activity android:name=".ReachStarsActivity" />
+
     </application>
 
 </manifest>
