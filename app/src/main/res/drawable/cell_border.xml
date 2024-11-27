@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="#FFFFFF" /> <!-- Color de fondo de la casilla, opcional -->
+    <stroke
+        android:width="2dp"
+        android:color="#000000" /> <!-- Grosor y color del borde -->
+
+    <corners android:radius="4dp"/> <!-- Esquinas ligeramente redondeadas (opcional) -->
+
+</shape>
