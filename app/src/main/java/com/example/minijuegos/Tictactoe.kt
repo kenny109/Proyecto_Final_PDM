@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class Tictactoe : AppCompatActivity() {
 
-    private var turn = "X" // siempre empieza X.
+    private var turn = "X" // siempre empieza X
     private val board = Array(3) { arrayOfNulls<ImageButton>(3) } // El tablero es una matriz de botones
     private var gameEnded = false // Esto es para saber si ya hay un ganador o no
 

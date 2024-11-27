@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Tictactoe">
-
     <!-- Botones de opciones arriba (Pausar y Reiniciar) -->
     <LinearLayout
         android:id="@+id/optionsLayout"

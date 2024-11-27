@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         cardReachStars.setOnClickListener {
             val intent = Intent(this, Tictactoe::class.java)
-            startActivity(intent)
+            startActivity(intent)//.
         }
     }
 }
