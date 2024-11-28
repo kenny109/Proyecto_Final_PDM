@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -33,6 +35,8 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+   
 }
 
 dependencies {

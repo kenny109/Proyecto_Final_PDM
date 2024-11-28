@@ -9,62 +9,79 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_memory_y_pares.view.*
+import com.example.minijuegos.R
 import java.util.*
 
-class MemoryYParesFragment : Fragment() {
+class MemoryPairsFragment : Fragment() {
+    private lateinit var cartasViews: List<ImageView>
+    private lateinit var player1TextView: TextView
+    private lateinit var player2TextView: TextView
 
-    var turno: Int = 1
-    var puntosPlayer1: Int = 0
-    var puntosPlayer2: Int = 0
-    var primeraCarta: Int = 0
-    var segundaCarta: Int = 0
-    var primerClick: Int = 0
-    var segundoClick: Int = 0
-    var numeroCarta: Int = 1
-    var cartas = ArrayList<Int>(listOf(11, 12, 13, 14, 15, 21, 22, 23, 24, 25))
+    private var turno: Int = 1
+    private var puntosPlayer1: Int = 0
+    private var puntosPlayer2: Int = 0
+    private var primeraCarta: Int = 0
+    private var segundaCarta: Int = 0
+    private var primerClick: Int = 0
+    private var segundoClick: Int = 0
+    private var numeroCarta: Int = 1
+    private var cartas = ArrayList<Int>(listOf(11, 12, 13, 14, 15, 21, 22, 23, 24, 25))
 
-    var imagen11: Int = 0
-    var imagen12: Int = 0
-    var imagen13: Int = 0
-    var imagen14: Int = 0
-    var imagen15: Int = 0
+    private var imagen11: Int = 0
+    private var imagen12: Int = 0
+    private var imagen13: Int = 0
+    private var imagen14: Int = 0
+    private var imagen15: Int = 0
 
-    var imagen21: Int = 0
-    var imagen22: Int = 0
-    var imagen23: Int = 0
-    var imagen24: Int = 0
-    var imagen25: Int = 0
+    private var imagen21: Int = 0
+    private var imagen22: Int = 0
+    private var imagen23: Int = 0
+    private var imagen24: Int = 0
+    private var imagen25: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view = inflater.inflate(R.layout.fragment_memorypairs, container, false)
 
-        // 1.- Setup UI
-        setUpUi(view)
+        // Inicializar vistas
+        player1TextView = view.findViewById(R.id.mainActivityTvPlayer1)
+        player2TextView = view.findViewById(R.id.mainActivityTvPlayer2)
+        cartasViews = listOf(
+            view.findViewById(R.id.im11),
+            view.findViewById(R.id.im12),
+            view.findViewById(R.id.im13),
+            view.findViewById(R.id.im21),
+            view.findViewById(R.id.im22),
+            view.findViewById(R.id.im23),
+            view.findViewById(R.id.im31),
+            view.findViewById(R.id.im32),
+            view.findViewById(R.id.im33),
+            view.findViewById(R.id.im41)
+        )
 
-        // 2.- Cargar Cartas
+        // Setup UI
+        setUpUi()
+        // Cargar cartas
         cargarCartas()
-
-        // 3.- Barajar las cartas
+        // Barajar cartas
         Collections.shuffle(cartas)
-
-        // 4.- Setup OnClickListener
-        setUpOnClickListener(view)
+        // Setup OnClickListener
+        setUpOnClickListener()
 
         return view
     }
 
-    private fun setUpUi(view: View) {
-        view.mainActivityTvPlayer1.setTextColor(Color.GREEN)
-        view.mainActivityTvPlayer1.setTypeface(null, Typeface.BOLD)
+    private fun setUpUi() {
+        player1TextView.setTextColor(Color.GREEN)
+        player1TextView.setTypeface(null, Typeface.BOLD)
 
-        view.mainActivityTvPlayer2.setTextColor(Color.GRAY)
-        view.mainActivityTvPlayer2.setTypeface(null, Typeface.NORMAL)
+        player2TextView.setTextColor(Color.GRAY)
+        player2TextView.setTypeface(null, Typeface.NORMAL)
     }
 
     private fun cargarCartas() {
@@ -81,20 +98,13 @@ class MemoryYParesFragment : Fragment() {
         imagen25 = R.drawable.ic_tren
     }
 
-    private fun setUpOnClickListener(view: View) {
-        view.im11.setOnClickListener { asignarImagenALaCarta(view.im11, 0, view) }
-        view.im12.setOnClickListener { asignarImagenALaCarta(view.im12, 1, view) }
-        view.im13.setOnClickListener { asignarImagenALaCarta(view.im13, 2, view) }
-        view.im21.setOnClickListener { asignarImagenALaCarta(view.im21, 3, view) }
-        view.im22.setOnClickListener { asignarImagenALaCarta(view.im22, 4, view) }
-        view.im23.setOnClickListener { asignarImagenALaCarta(view.im23, 5, view) }
-        view.im31.setOnClickListener { asignarImagenALaCarta(view.im31, 6, view) }
-        view.im32.setOnClickListener { asignarImagenALaCarta(view.im32, 7, view) }
-        view.im33.setOnClickListener { asignarImagenALaCarta(view.im33, 8, view) }
-        view.im41.setOnClickListener { asignarImagenALaCarta(view.im41, 9, view) }
+    private fun setUpOnClickListener() {
+        cartasViews.forEachIndexed { index, imageView ->
+            imageView.setOnClickListener { asignarImagenALaCarta(imageView, index) }
+        }
     }
 
-    private fun asignarImagenALaCarta(image: ImageView, carta: Int, view: View) {
+    private fun asignarImagenALaCarta(image: ImageView, carta: Int) {
         when (cartas[carta]) {
             11 -> image.setImageResource(imagen11)
             12 -> image.setImageResource(imagen12)
@@ -122,81 +132,66 @@ class MemoryYParesFragment : Fragment() {
             }
             numeroCarta = 1
             segundoClick = carta
-            bloquearCartas(view)
+            bloquearCartas()
             val handler = Handler()
-            handler.postDelayed({ comprobarCorrecto(view) }, 1000)
+            handler.postDelayed({ comprobarCorrecto() }, 1000)
         }
     }
 
-    private fun bloquearCartas(view: View) {
-        listOf(view.im11, view.im12, view.im13, view.im21, view.im22, view.im23, view.im31, view.im32, view.im33, view.im41)
-            .forEach { it.isEnabled = false }
+    private fun bloquearCartas() {
+        cartasViews.forEach { it.isEnabled = false }
     }
 
-    private fun comprobarCorrecto(view: View) {
+    private fun comprobarCorrecto() {
         if (primeraCarta == segundaCarta) {
             listOf(primerClick, segundoClick).forEach {
-                when (it) {
-                    0 -> view.im11.visibility = View.INVISIBLE
-                    1 -> view.im12.visibility = View.INVISIBLE
-                    2 -> view.im13.visibility = View.INVISIBLE
-                    3 -> view.im21.visibility = View.INVISIBLE
-                    4 -> view.im22.visibility = View.INVISIBLE
-                    5 -> view.im23.visibility = View.INVISIBLE
-                    6 -> view.im31.visibility = View.INVISIBLE
-                    7 -> view.im32.visibility = View.INVISIBLE
-                    8 -> view.im33.visibility = View.INVISIBLE
-                    9 -> view.im41.visibility = View.INVISIBLE
-                }
+                cartasViews[it].visibility = View.INVISIBLE
             }
-            actualizarPuntajes(view)
+            actualizarPuntajes()
         } else {
-            reiniciarCartas(view)
+            reiniciarCartas()
         }
-        desbloquearCartas(view)
-        finPartida(view)
+        desbloquearCartas()
+        finPartida()
     }
 
-    private fun actualizarPuntajes(view: View) {
+    private fun actualizarPuntajes() {
         if (turno == 1) {
             puntosPlayer1++
-            view.mainActivityTvPlayer1.text = "Player 1: $puntosPlayer1"
+            player1TextView.text = "Player 1: $puntosPlayer1"
         } else {
             puntosPlayer2++
-            view.mainActivityTvPlayer2.text = "Player 2: $puntosPlayer2"
+            player2TextView.text = "Player 2: $puntosPlayer2"
         }
     }
 
-    private fun reiniciarCartas(view: View) {
-        listOf(view.im11, view.im12, view.im13, view.im21, view.im22, view.im23, view.im31, view.im32, view.im33, view.im41)
-            .forEach { it.setImageResource(R.drawable.ic_caja_negra) }
-        cambiarTurno(view)
+    private fun reiniciarCartas() {
+        cartasViews.forEach { it.setImageResource(R.drawable.ic_caja_negra) }
+        cambiarTurno()
     }
 
-    private fun cambiarTurno(view: View) {
+    private fun cambiarTurno() {
         if (turno == 1) {
             turno = 2
-            view.mainActivityTvPlayer1.setTextColor(Color.GRAY)
-            view.mainActivityTvPlayer1.setTypeface(null, Typeface.NORMAL)
-            view.mainActivityTvPlayer2.setTextColor(Color.RED)
-            view.mainActivityTvPlayer2.setTypeface(null, Typeface.BOLD)
+            player1TextView.setTextColor(Color.GRAY)
+            player1TextView.setTypeface(null, Typeface.NORMAL)
+            player2TextView.setTextColor(Color.RED)
+            player2TextView.setTypeface(null, Typeface.BOLD)
         } else {
             turno = 1
-            view.mainActivityTvPlayer1.setTextColor(Color.GREEN)
-            view.mainActivityTvPlayer1.setTypeface(null, Typeface.BOLD)
-            view.mainActivityTvPlayer2.setTextColor(Color.GRAY)
-            view.mainActivityTvPlayer2.setTypeface(null, Typeface.NORMAL)
+            player1TextView.setTextColor(Color.GREEN)
+            player1TextView.setTypeface(null, Typeface.BOLD)
+            player2TextView.setTextColor(Color.GRAY)
+            player2TextView.setTypeface(null, Typeface.NORMAL)
         }
     }
 
-    private fun desbloquearCartas(view: View) {
-        listOf(view.im11, view.im12, view.im13, view.im21, view.im22, view.im23, view.im31, view.im32, view.im33, view.im41)
-            .forEach { it.isEnabled = true }
+    private fun desbloquearCartas() {
+        cartasViews.forEach { it.isEnabled = true }
     }
 
-    private fun finPartida(view: View) {
-        if (listOf(view.im11, view.im12, view.im13, view.im21, view.im22, view.im23, view.im31, view.im32, view.im33, view.im41)
-                .all { it.visibility == View.INVISIBLE }) {
+    private fun finPartida() {
+        if (cartasViews.all { it.visibility == View.INVISIBLE }) {
             val alertDialog = AlertDialog.Builder(requireContext()).create()
             alertDialog.setTitle("Fin de partida")
             alertDialog.setMessage("Player 1: $puntosPlayer1\nPlayer 2: $puntosPlayer2")
