@@ -189,6 +189,7 @@ class MemoryPairsFragment : Fragment() {
         }
     }
 
+
     private fun desbloquearCartas() {
         cartasViews.forEach { it.isEnabled = true }
     }
