@@ -86,6 +86,7 @@ class MemoryPairsFragment : Fragment() {
         player2TextView.setTextColor(Color.GRAY)
         player2TextView.setTypeface(null, Typeface.NORMAL)
     }
+
     private fun cargarCartas() {
         imagen11 = R.drawable.ic_bicle
         imagen12 = R.drawable.ic_barco
