@@ -1,6 +1,6 @@
 //Archivo creado por Marycielo Guadalupe Bedoya Pinto
 //Ultima modificación:28/11/24
-
+//JUego de memoria de pares, en donde se busca dos imagenes identicas y se acumula puntos
 package com.example.minijuegos
 
 import android.content.Intent
