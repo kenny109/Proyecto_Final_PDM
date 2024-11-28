@@ -1,3 +1,6 @@
+//Archivo creado por Marycielo Guadalupe Bedoya Pinto
+//Ultima modificación:28/11/24
+
 package com.example.minijuegos
 
 import android.content.Intent
@@ -83,7 +86,6 @@ class MemoryPairsFragment : Fragment() {
         player2TextView.setTextColor(Color.GRAY)
         player2TextView.setTypeface(null, Typeface.NORMAL)
     }
-
     private fun cargarCartas() {
         imagen11 = R.drawable.ic_bicle
         imagen12 = R.drawable.ic_barco
