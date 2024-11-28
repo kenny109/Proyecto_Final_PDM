@@ -7,4 +7,7 @@
     <string name="select_game">Seleccione su minijuego</string>
     <string name="comming_soon">Coming soon (aun en progreso)</string>
 
+    <string name="player1">Player 1</string>
+    <string name="player2">Player 2</string>
+
 </resources>
