@@ -1,32 +1,41 @@
 package com.example.minijuegos
 
-import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 
-class Tictactoe : AppCompatActivity() {
+class TictactoeFragment : Fragment() {
 
     private var turn = "X" // siempre empieza X
     private val board = Array(3) { arrayOfNulls<ImageButton>(3) } // El tablero es una matriz de botones
     private var gameEnded = false // Esto es para saber si ya hay un ganador o no
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tictactoe)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflamos el diseño del fragmento
+        return inflater.inflate(R.layout.fragment_tictactoe, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // Conectamos los botones del XML al código para que el tablero funcione
-        board[0][0] = findViewById(R.id.button1)
-        board[0][1] = findViewById(R.id.button2)
-        board[0][2] = findViewById(R.id.button3)
-        board[1][0] = findViewById(R.id.button4)
-        board[1][1] = findViewById(R.id.button5)
-        board[1][2] = findViewById(R.id.button6)
-        board[2][0] = findViewById(R.id.button7)
-        board[2][1] = findViewById(R.id.button8)
-        board[2][2] = findViewById(R.id.button9)
+        board[0][0] = view.findViewById(R.id.button1)
+        board[0][1] = view.findViewById(R.id.button2)
+        board[0][2] = view.findViewById(R.id.button3)
+        board[1][0] = view.findViewById(R.id.button4)
+        board[1][1] = view.findViewById(R.id.button5)
+        board[1][2] = view.findViewById(R.id.button6)
+        board[2][0] = view.findViewById(R.id.button7)
+        board[2][1] = view.findViewById(R.id.button8)
+        board[2][2] = view.findViewById(R.id.button9)
 
         // Le ponemos un clic a cada botón del tablero
         for (i in 0..2) {
@@ -38,17 +47,15 @@ class Tictactoe : AppCompatActivity() {
         }
 
         // Botón de reiniciar
-        val restartButton: Button = findViewById(R.id.restartButton)
+        val restartButton: Button = view.findViewById(R.id.restartButton)
         restartButton.setOnClickListener {
             restartGame()
         }
 
-        // Botón para volver al MainActivity
-        val volverButton: Button = findViewById(R.id.volverButton)
+        // Botón para volver al fragment anterior
+        val volverButton: Button = view.findViewById(R.id.volverButton)
         volverButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish() // Cerramos esta actividad
+            parentFragmentManager.popBackStack() // Regresa al fragment anterior
         }
     }
 
@@ -64,7 +71,7 @@ class Tictactoe : AppCompatActivity() {
 
         if (checkWinner()) {
             // Mostramos quién ganó y bloqueamos el tablero
-            Toast.makeText(this, "¡${turn} ha ganado!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "¡${turn} ha ganado!", Toast.LENGTH_SHORT).show()
             gameEnded = true
         } else {
             // Cambiamos el turno

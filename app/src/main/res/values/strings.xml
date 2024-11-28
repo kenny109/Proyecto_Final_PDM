@@ -2,7 +2,7 @@
     <string name="app_name">minijuegos</string>
     <string name="llegandoalasestrellas">Legando a las Estrellas</string>
     <string name="memoriadepares">Memoria de Pares</string>
-    <string name="conectarcolores">Conectar Colores</string>
+    <string name="tictactoe">TicTacToe</string>
     <string name="memoriadesonidos">Memoria de Sonidos</string>
     <string name="select_game">Seleccione su minijuego</string>
     <string name="comming_soon">Coming soon (aun en progreso)</string>
