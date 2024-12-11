@@ -2,4 +2,28 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!--  Colores principales de la aplicación  -->
+    <color name="colorPrimary">#6200EE</color>
+    <!--  Azul principal  -->
+    <color name="colorPrimaryDark">#3700B3</color>
+    <!--  Azul oscuro  -->
+    <color name="colorAccent">#03DAC5</color>
+    <!--  Verde acuático  -->
+    <!--  Colores adicionales  -->
+    <color name="colorBackground">#FFFFFF</color>
+    <!--  Fondo blanco  -->
+    <color name="colorTextPrimary">#000000</color>
+    <!--  Texto principal en negro  -->
+    <color name="colorTextSecondary">#757575</color>
+    <!--  Texto secundario en gris  -->
+    <color name="windowBackground">#FFFFFF</color>
+    <!--  Fondo de ventana  -->
+    <!--  Colores para botones  -->
+    <color name="buttonBackground">#6200EE</color>
+    <!--  Fondo del botón  -->
+    <color name="buttonTextColor">#FFFFFF</color>
+    <!--  Texto del botón  -->
+    <!--  Celeste pastel  -->
+    <color name="colorCelestePastel">#A2D2FF</color>
+    <!--  Celeste pastel  -->
 </resources>
