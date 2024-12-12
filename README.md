@@ -29,18 +29,11 @@ Un juego de memoria donde los jugadores deben encontrar pares de imágenes igual
 - Indicaciones claras de turno y puntuación actual.  
 
 ---
-
-## 🚀 **Próximos Mini Juegos**
-
 ### 3. **Memory Sounds (Memoria de Sonidos)**  
 **Coming Soon!** 🛠  
 Prueba tu memoria auditiva asociando sonidos a imágenes. ¡Próximamente disponible en una futura actualización!
 
----
 
-### 4. **Reaching the Stars (Alcanzando las Estrellas)**  
-**Coming Soon!** 🛠  
-Un juego emocionante donde pondrás a prueba tus reflejos y precisión. ¡Prepárate para alcanzar nuevas alturas muy pronto!
 
 ---
 
