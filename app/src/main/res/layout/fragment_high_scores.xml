@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvHighScoresTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Puntajes Altos"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:paddingBottom="16dp" />
+
+    <!-- RecyclerView para mostrar la lista de puntajes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewHighScores"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="8dp"
+        android:paddingTop="8dp" />
+</LinearLayout>

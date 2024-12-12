@@ -1,91 +1,26 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorCelestePastel">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
 
     <TextView
-        android:id="@+id/tvRoundInfo"
+        android:id="@+id/gameTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="Ronda: 1"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:text="@string/memoriadesonidos"
+        android:paddingBottom="8dp" />
 
-    <ImageView
-        android:id="@+id/btnGuitar"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/ic_guitar"
-        android:contentDescription="Guitarra"
-        android:scaleType="fitCenter"
-        android:background="@color/colorCelestePastel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvRoundInfo" />
-
-    <ImageView
-        android:id="@+id/btnDrums"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/ic_drums"
-        android:contentDescription="Batería"
-        android:scaleType="fitCenter"
-        android:background="@color/colorCelestePastel"
-        app:layout_constraintStart_toEndOf="@+id/btnGuitar"
-        app:layout_constraintTop_toBottomOf="@id/btnGuitar" />
-
-    <ImageView
-        android:id="@+id/btnPiano"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="30dp"
-        android:src="@drawable/ic_piano"
-        android:contentDescription="Piano"
-        android:scaleType="fitCenter"
-        android:background="@color/colorCelestePastel"
-        app:layout_constraintEnd_toStartOf="@+id/btnGuitar"
-        app:layout_constraintTop_toBottomOf="@+id/btnGuitar" />
-
-    <ImageView
-        android:id="@+id/btnTrumpet"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/ic_trumpet"
-        android:contentDescription="Trompeta"
-        android:scaleType="fitCenter"
-        android:background="@color/colorCelestePastel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnPiano" />
-
-    <!-- Botones de retroceso y reinicio -->
-    <Button
-        android:id="@+id/btnBack"
+    <TextView
+        android:id="@+id/gameStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Volver"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="16dp"/>
-
-    <Button
-        android:id="@+id/btnRestart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reiniciar"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnBack"
-        android:layout_marginEnd="16dp"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="18sp"
+        android:text="@string/comming_soon"
+        android:textColor="@android:color/black" />
+</LinearLayout>

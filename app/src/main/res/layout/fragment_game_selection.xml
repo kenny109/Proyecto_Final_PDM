@@ -170,4 +170,13 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </GridLayout>
+
+    <!-- Button to Access High Scores -->
+    <Button
+        android:id="@+id/btnViewHighScores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Puntajes"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp" />
 </LinearLayout>

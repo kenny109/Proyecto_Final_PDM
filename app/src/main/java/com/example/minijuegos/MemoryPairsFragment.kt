@@ -3,7 +3,6 @@
 //JUego de memoria de pares, en donde se busca dos imagenes identicas y se acumula puntos
 package com.example.minijuegos
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -15,7 +14,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import com.example.minijuegos.R
 import java.util.*
 
 class MemoryPairsFragment : Fragment() {
