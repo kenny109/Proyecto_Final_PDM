@@ -105,7 +105,7 @@ class MemoryPairsFragment : Fragment() {
             imageView.setOnClickListener { asignarImagenALaCarta(imageView, index) }
         }
     }
-
+//Asignamos una imagen a las cartas
     private fun asignarImagenALaCarta(image: ImageView, carta: Int) {
         when (cartas[carta]) {
             11 -> image.setImageResource(imagen11)
@@ -143,7 +143,7 @@ class MemoryPairsFragment : Fragment() {
     private fun bloquearCartas() {
         cartasViews.forEach { it.isEnabled = false }
     }
-
+//Funcion para verificar si esta correcto el juego
     private fun comprobarCorrecto() {
         if (primeraCarta == segundaCarta) {
             listOf(primerClick, segundoClick).forEach {

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">minijuegos</string>
-    <string name="llegandoalasestrellas">Legando a las Estrellas</string>
     <string name="memoriadepares">Memoria de Pares</string>
     <string name="tictactoe">TicTacToe</string>
     <string name="memoriadesonidos">Memoria de Sonidos</string>
@@ -9,5 +8,6 @@
 
     <string name="player1">Player 1</string>
     <string name="player2">Player 2</string>
+    <string name="puntajes">Ver Puntajes</string>
 
 </resources>

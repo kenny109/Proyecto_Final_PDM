@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import android.widget.Button
 
 class GameSelectionFragment : Fragment() {
 
@@ -25,7 +24,7 @@ class GameSelectionFragment : Fragment() {
         val cardMemoryPairs = view.findViewById<CardView>(R.id.cardMemoryPairs)
         val cardConnectColors = view.findViewById<CardView>(R.id.cardTicTacToe)
         val cardSoundMemory = view.findViewById<CardView>(R.id.cardSoundMemory)
-        val cardReachStars = view.findViewById<CardView>(R.id.cardReachStars)
+        val cardViewHighScores = view.findViewById<CardView>(R.id.cardViewHighScores)
 
         // Configuración de botones de juegos
         cardMemoryPairs.setOnClickListener {
@@ -40,13 +39,8 @@ class GameSelectionFragment : Fragment() {
             navigateToFragment(SoundMemoryFragment())
         }
 
-        cardReachStars.setOnClickListener {
-            navigateToFragment(ReachStarsFragment())
-        }
-
         // Configuración para el botón de puntajes
-        val btnViewHighScores = view.findViewById<Button>(R.id.btnViewHighScores)
-        btnViewHighScores.setOnClickListener {
+        cardViewHighScores.setOnClickListener {
             navigateToFragment(HighScoresFragment()) // Aquí se navega al fragmento de puntajes
         }
     }
@@ -54,9 +48,8 @@ class GameSelectionFragment : Fragment() {
     // Método de navegación (puedes adaptarlo según tu implementación)
     private fun navigateToFragment(fragment: Fragment) {
         requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer , fragment) // Asumiendo que fragment_container es tu contenedor de fragmentos
+            .replace(R.id.fragmentContainer, fragment) // Asegúrate que fragmentContainer exista en el layout principal
             .addToBackStack(null)
             .commit()
     }
 }
-
