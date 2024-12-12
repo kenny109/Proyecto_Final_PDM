@@ -30,8 +30,9 @@ Un juego de memoria donde los jugadores deben encontrar pares de imágenes igual
 
 ---
 ### 3. **Memory Sounds (Memoria de Sonidos)**  
-**Coming Soon!** 🛠  
-Prueba tu memoria auditiva asociando sonidos a imágenes. ¡Próximamente disponible en una futura actualización!
+**Juego para un jugador!** 🛠  
+- Selecciona los elementos que generan el sonido progresivamente 
+- Sistema de puntajes para ver que tan lejos llega tu memoria!
 
 
 
